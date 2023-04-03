@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h2>Ini adalah halaman index</h2>
+    <h2>Ini adalah halaman main</h2>
 </body>
 
 </html>
