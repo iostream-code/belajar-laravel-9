@@ -18,11 +18,42 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
 
-        for($i = 1; $i <= 22; $i++){
-            DB::table('students')->insert([
+        //teachers seed
+
+        for ($i = 1; $i <= 5; $i++) {
+            DB::table('teachers')->insert([
                 'name' => $faker->name,
-                'score' => $faker->numberBetween(50, 100)
             ]);
         }
+
+        //students seed
+
+        for ($i = 1; $i <= 20; $i++) {
+            DB::table('students')->insert([
+                'name' => $faker->name,
+                'score' => $faker->numberBetween(50, 100),
+                'teacher_id' => $faker->numberBetween(1, 5)
+            ]);
+        }
+
+        //contact seed
+
+        // for ($i = 1; $i <= 20; $i++) {
+        //     DB::table('students')->insert([
+        //         'name' => $faker->name,
+        //         'score' => $faker->numberBetween(50, 100),
+        //         'teacher_id' => $faker->numberBetween(1, 5)
+        //     ]);
+        // }
+
+        //activities seed
+
+        // for ($i = 1; $i <= 20; $i++) {
+        //     DB::table('students')->insert([
+        //         'name' => $faker->name,
+        //         'score' => $faker->numberBetween(50, 100),
+        //         'teacher_id' => $faker->numberBetween(1, 5)
+        //     ]);
+        // }
     }
 }

@@ -9,7 +9,21 @@
 </head>
 
 <body>
-    <h2>Ini adalah halaman Home</h2>
+    <h2>Selamat datang {{ $name }}</h2>
+    <h4>Tempat tinggal Anda di {{ $address }}</h4>
+    <h4>Anda mengikuti ekstrakulikuler {{ $activity->name }}</h4>
+    <h4>Pembimbing Anda adalah {{ $teacher }}</h4>
+
+    <h3>Daftar yang mengikuti {{ $activity->name }}</h3>
+    @foreach ($studentsAct as $act)
+        <p>{{ $act->name }}</p>
+    @endforeach
+
+    <h3>Daftar Murid {{ $teacher }} :</h3>
+    @foreach ($students as $student)
+        <p>{{ $student->name }}</p>
+    @endforeach
+
 </body>
 
 </html>
