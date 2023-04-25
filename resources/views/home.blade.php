@@ -1,29 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-<body>
-    <h2>Selamat datang {{ $name }}</h2>
-    <h4>Tempat tinggal Anda di {{ $address }}</h4>
-    <h4>Anda mengikuti ekstrakulikuler {{ $activity->name }}</h4>
-    <h4>Pembimbing Anda adalah {{ $teacher }}</h4>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-    <h3>Daftar yang mengikuti {{ $activity->name }}</h3>
-    @foreach ($studentsAct as $act)
-        <p>{{ $act->name }}</p>
-    @endforeach
-
-    <h3>Daftar Murid {{ $teacher }} :</h3>
-    @foreach ($students as $student)
-        <p>{{ $student->name }}</p>
-    @endforeach
-
-</body>
-
-</html>
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
